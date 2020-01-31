@@ -1,0 +1,1 @@
+type ReactLazyComponent = React.LazyExoticComponent<() => JSX.Element | null>;
