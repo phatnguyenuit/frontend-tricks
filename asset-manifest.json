@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/frontend-tricks/static/css/main.6be594e7.chunk.css",
+    "main.js": "/frontend-tricks/static/js/main.690fe5b1.chunk.js",
+    "main.js.map": "/frontend-tricks/static/js/main.690fe5b1.chunk.js.map",
+    "runtime-main.js": "/frontend-tricks/static/js/runtime-main.8c5aa26a.js",
+    "runtime-main.js.map": "/frontend-tricks/static/js/runtime-main.8c5aa26a.js.map",
+    "static/js/2.aa337599.chunk.js": "/frontend-tricks/static/js/2.aa337599.chunk.js",
+    "static/js/2.aa337599.chunk.js.map": "/frontend-tricks/static/js/2.aa337599.chunk.js.map",
+    "static/js/3.4be3eccb.chunk.js": "/frontend-tricks/static/js/3.4be3eccb.chunk.js",
+    "static/js/3.4be3eccb.chunk.js.map": "/frontend-tricks/static/js/3.4be3eccb.chunk.js.map",
+    "static/js/4.bc695527.chunk.js": "/frontend-tricks/static/js/4.bc695527.chunk.js",
+    "static/js/4.bc695527.chunk.js.map": "/frontend-tricks/static/js/4.bc695527.chunk.js.map",
+    "index.html": "/frontend-tricks/index.html",
+    "precache-manifest.0a8660b6ca29f670cc402379b1c1ceee.js": "/frontend-tricks/precache-manifest.0a8660b6ca29f670cc402379b1c1ceee.js",
+    "service-worker.js": "/frontend-tricks/service-worker.js",
+    "static/css/main.6be594e7.chunk.css.map": "/frontend-tricks/static/css/main.6be594e7.chunk.css.map",
+    "static/js/2.aa337599.chunk.js.LICENSE": "/frontend-tricks/static/js/2.aa337599.chunk.js.LICENSE",
+    "static/media/logo.svg": "/frontend-tricks/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8c5aa26a.js",
+    "static/js/2.aa337599.chunk.js",
+    "static/css/main.6be594e7.chunk.css",
+    "static/js/main.690fe5b1.chunk.js"
+  ]
+}
