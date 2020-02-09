@@ -22,7 +22,7 @@ interface MyItem extends BaseItem {
 const people: Array<Person> = [
   {
     id: 1,
-    name: 'Nguyen Tan Phat - very long long text here!',
+    name: 'Nguyen Tan Phat',
     gender: 'male',
   },
   {

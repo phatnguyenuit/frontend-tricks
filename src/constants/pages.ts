@@ -10,6 +10,10 @@ const pages: Record<string, PageProps> = {
     component: React.lazy(() => import('pages/Foo')),
     name: 'Foo Component',
   },
+  loading: {
+    component: React.lazy(() => import('pages/Loading')),
+    name: 'Loading Component',
+  },
   table: {
     component: React.lazy(() => import('pages/Table')),
     name: 'Table Component',
