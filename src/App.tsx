@@ -15,7 +15,10 @@ import logo from './logo.svg';
 import './App.css';
 
 const App: React.FC = () => {
-  const [lastPage, setLastPage] = useLocalStorage('page', 'foo');
+  const { storedValue: lastPage, setValue: setLastPage } = useLocalStorage(
+    'page',
+    'foo',
+  );
   const [page, setPage] = React.useState(lastPage);
   const onChangePage = React.useCallback(
     (
