@@ -40,7 +40,6 @@ const App: React.FC = () => {
     },
     [setPage, setLastPage],
   );
-  console.log(page);
   const Page = (page || DEFAULT_PAGE).component;
   return (
     <MuiThemeProvider theme={theme}>
@@ -60,7 +59,7 @@ const App: React.FC = () => {
         <main className="App-content">
           <Grid container spacing={1} alignItems="center">
             <Grid item xs="auto">Choose page to show:</Grid>
-            <Grid item xs={2}>
+            <Grid item xs sm={6} md={2}>
               <CustomSelect
                 defaultTitle="Choose Page"
                 selection={pages}
