@@ -26,12 +26,12 @@ export function CustomSelectComponent<TItem extends BaseItem>(
   const classes = useStyles();
   const {
     open,
-    selectedItem,
     handleToggle,
     handleSelectItem,
     isSelectedItem,
     stopPropagation,
     closeSelection,
+    selectedItem,
   } = useHandleSelect(props);
   const title = useMemo(() => selectedItem?.label || defaultTitle, [
     defaultTitle,
@@ -85,7 +85,9 @@ export function CustomSelectComponent<TItem extends BaseItem>(
   );
 }
 
-const CustomSelect = React.memo(CustomSelectComponent);
+const CustomSelect = React.memo(
+  CustomSelectComponent,
+) as typeof CustomSelectComponent & React.ComponentType<any>;
 CustomSelect.displayName = 'CustomSelect';
 export default CustomSelect;
 

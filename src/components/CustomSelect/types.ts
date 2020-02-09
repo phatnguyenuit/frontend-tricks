@@ -13,18 +13,16 @@ export interface BaseItem {
 interface CustomSelectBaseProps<TItem> {
   defaultTitle: React.ReactNode;
   selection: Array<TItem>;
-  multiple?: boolean;
   SelectIcons?: SelectIcons;
 }
 
-export interface CustomSelectProps<TItem>
-  extends Omit<CustomSelectBaseProps<TItem>, 'multiple'> {
-  selectedValue?: TItem;
+export interface CustomSelectProps<TItem> extends CustomSelectBaseProps<TItem> {
+  selectedItem?: TItem;
   onChange: ChangeHandler<TItem>;
 }
 
 export interface CustomMultipleSelectProps<TItem>
-  extends Omit<CustomSelectBaseProps<TItem>, 'multiple'> {
-  selectedValue?: Array<TItem>;
+  extends CustomSelectBaseProps<TItem> {
+  selectedItem?: Array<TItem>;
   onChange: ChangeHandler<Array<TItem>>;
 }

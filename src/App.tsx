@@ -4,33 +4,44 @@ import { MuiThemeProvider } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import MenuItem from '@material-ui/core/MenuItem';
-import MuiSelect from '@material-ui/core/Select';
-import Loading from 'components/Loading';
+
 import useLocalStorage from 'hooks/useLocalStorage';
 import theme from 'theme';
-import pages from 'constants/pages';
+import PAGES from 'constants/pages';
+
+import Loading from 'components/Loading';
+import CustomSelect, { BaseItem } from 'components/CustomSelect';
 
 import logo from './logo.svg';
 import './App.css';
 
+interface PageItem extends BaseItem {
+  component: ReactLazyComponent;
+}
+
+const pages: Array<PageItem> = Object.keys(PAGES).map((key) => ({
+  value: key,
+  label: PAGES[key].name,
+  component: PAGES[key].component,
+}));
+
+const DEFAULT_PAGE = pages[0];
+
 const App: React.FC = () => {
-  const [lastPage, setLastPage] = useLocalStorage('page', 'foo');
-  const [page, setPage] = React.useState(lastPage);
+  const [lastPage, setLastPage] = useLocalStorage('page', DEFAULT_PAGE.value);
+  const lastPageItem = React.useMemo(() => {
+    return pages.find((page) => page.value === lastPage);
+  }, [lastPage]);
+  const [page, setPage] = React.useState(lastPageItem);
   const onChangePage = React.useCallback(
-    (
-      e: React.ChangeEvent<{
-        name?: string | undefined;
-        value: unknown;
-      }>,
-    ) => {
-      const value = String(e.target.value);
-      setPage(value);
-      setLastPage(value);
+    (selected: PageItem) => {
+      setPage(selected);
+      setLastPage(String(selected.value));
     },
-    [setLastPage],
+    [setPage, setLastPage],
   );
-  const Page = pages[page]['component'];
+  console.log(page);
+  const Page = (page || DEFAULT_PAGE).component;
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
@@ -48,19 +59,14 @@ const App: React.FC = () => {
         </header>
         <main className="App-content">
           <Grid container spacing={1} alignItems="center">
-            <Grid item>Choose page to show:</Grid>
-            <Grid item>
-              <MuiSelect
-                value={page}
+            <Grid item xs="auto">Choose page to show:</Grid>
+            <Grid item xs={2}>
+              <CustomSelect
+                defaultTitle="Choose Page"
+                selection={pages}
+                selectedItem={page}
                 onChange={onChangePage}
-                variant="standard"
-              >
-                {Object.entries(pages).map(([key, pageProps]) => (
-                  <MenuItem key={key} value={key}>
-                    {pageProps.name}
-                  </MenuItem>
-                ))}
-              </MuiSelect>
+              />
             </Grid>
           </Grid>
           <React.Suspense fallback={<Loading />}>

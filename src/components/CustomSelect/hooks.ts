@@ -29,7 +29,7 @@ export const useSelect = () => {
 export const useHandleSelect = <TItem extends BaseItem>(
   props: CustomSelectProps<TItem>,
 ) => {
-  const { onChange } = props;
+  const { onChange, selectedItem: defaultSelectedItem } = props;
   const {
     open,
     setOpen,
@@ -37,7 +37,9 @@ export const useHandleSelect = <TItem extends BaseItem>(
     closeSelection,
     stopPropagation,
   } = useSelect();
-  const [selectedItem, setSelectedItem] = useState<TItem>();
+  const [selectedItem = defaultSelectedItem, setSelectedItem] = useState<
+    TItem
+  >();
   const handleSelectItem = useCallback(
     (item: TItem) => () => {
       setOpen(false);
@@ -65,7 +67,7 @@ export const useHandleSelect = <TItem extends BaseItem>(
 export const useHandleMultipleSelect = <TItem extends BaseItem>(
   props: CustomMultipleSelectProps<TItem>,
 ) => {
-  const { onChange } = props;
+  const { onChange, selectedItem: defaultSelectedItem = [] } = props;
   const {
     open,
     setOpen,
@@ -73,7 +75,9 @@ export const useHandleMultipleSelect = <TItem extends BaseItem>(
     closeSelection,
     stopPropagation,
   } = useSelect();
-  const [selectedItems = [], setSelectedItems] = useState<Array<TItem>>();
+  const [selectedItems = [], setSelectedItems] = useState<Array<TItem>>(
+    defaultSelectedItem,
+  );
   const handleSelectItem = useCallback(
     (item: TItem, selected: boolean = false) => () => {
       let toUpdateItems = [...selectedItems];
