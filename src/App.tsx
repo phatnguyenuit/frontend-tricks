@@ -2,31 +2,17 @@ import React from 'react';
 
 import { MuiThemeProvider } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import MuiSelect from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import MuiSelect from '@material-ui/core/Select';
 import Loading from 'components/Loading';
 import useLocalStorage from 'hooks/useLocalStorage';
 import theme from 'theme';
+import pages from 'constants/pages';
 
 import logo from './logo.svg';
 import './App.css';
-
-type PageProps = {
-  name: string;
-  component: ReactLazyComponent;
-};
-
-const pages: Record<string, PageProps> = {
-  foo: {
-    component: React.lazy(() => import('pages/Foo')),
-    name: 'Foo Component',
-  },
-  table: {
-    component: React.lazy(() => import('pages/Table')),
-    name: 'Table Component',
-  },
-};
 
 const App: React.FC = () => {
   const [lastPage, setLastPage] = useLocalStorage('page', 'foo');
@@ -47,6 +33,7 @@ const App: React.FC = () => {
   const Page = pages[page]['component'];
   return (
     <MuiThemeProvider theme={theme}>
+      <CssBaseline />
       <div className="App">
         <header className="App-header">
           <a
