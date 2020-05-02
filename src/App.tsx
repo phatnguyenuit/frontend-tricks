@@ -5,6 +5,8 @@ import Box from '@material-ui/core/Box';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 
+import GitHubCorner from 'react-github-corner';
+
 import useLocalStorage from 'hooks/useLocalStorage';
 import theme from 'theme';
 import PAGES from 'constants/pages';
@@ -38,7 +40,7 @@ const App: React.FC = () => {
       setPage(selected);
       setLastPage(String(selected.value));
     },
-    [setPage, setLastPage],
+    [setPage, setLastPage]
   );
   const Page = (page || DEFAULT_PAGE).component;
   return (
@@ -55,10 +57,13 @@ const App: React.FC = () => {
             <img src={logo} className="App-logo" alt="logo" />
             Learn React!
           </a>
+          <GitHubCorner href="https://github.com/phatnguyenuit/frontend-tricks" />
         </header>
         <main className="App-content">
           <Grid container spacing={1} alignItems="center">
-            <Grid item xs="auto">Choose page to show:</Grid>
+            <Grid item xs="auto">
+              Choose page to show:
+            </Grid>
             <Grid item xs sm={6} md={2}>
               <CustomSelect
                 defaultTitle="Choose Page"
