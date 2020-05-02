@@ -50,12 +50,12 @@ const App: React.FC = () => {
         <header className="App-header">
           <a
             className="App-link"
-            href="https://reactjs.org"
+            href="https://github.com/phatnguyenuit/frontend-tricks"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src={logo} className="App-logo" alt="logo" />
-            Learn React!
+            Frontend Tricks
           </a>
           <GitHubCorner href="https://github.com/phatnguyenuit/frontend-tricks" />
         </header>
