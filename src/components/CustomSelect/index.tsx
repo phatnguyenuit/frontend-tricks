@@ -16,7 +16,7 @@ export const DEFAULT_ICONS: SelectIcons = {
 };
 
 export function CustomSelectComponent<TItem extends BaseItem>(
-  props: CustomSelectProps<TItem>,
+  props: CustomSelectProps<TItem>
 ) {
   const {
     defaultTitle,
@@ -86,7 +86,7 @@ export function CustomSelectComponent<TItem extends BaseItem>(
 }
 
 const CustomSelect = React.memo(
-  CustomSelectComponent,
+  CustomSelectComponent
 ) as typeof CustomSelectComponent & React.ComponentType<any>;
 CustomSelect.displayName = 'CustomSelect';
 export default CustomSelect;

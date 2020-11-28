@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function useLocalStorage<T>(
   key: string,
-  initialValue: T,
+  initialValue: T
 ): [string, (value: T) => void] {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
@@ -14,6 +14,7 @@ function useLocalStorage<T>(
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
       // If error also return initialValue
+      // eslint-disable-next-line no-console
       console.log(error);
       return initialValue;
     }
@@ -29,6 +30,7 @@ function useLocalStorage<T>(
       window.localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
       // A more advanced implementation would handle the error case
+      // eslint-disable-next-line no-console
       console.log(error);
     }
   };

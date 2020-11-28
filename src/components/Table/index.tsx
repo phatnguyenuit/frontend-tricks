@@ -46,6 +46,6 @@ export interface ColumnOptions<TRecord> {
 export type ColumnOptionsList<TRecord> = Array<ColumnOptions<TRecord>>;
 export type ColumnRenderer<TRecord> = (
   record: TRecord,
-  index: number,
+  index: number
 ) => React.ReactNode;
 export type HeaderRenderer = () => React.ReactNode;

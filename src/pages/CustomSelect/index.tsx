@@ -57,6 +57,7 @@ const CustomSelectPage = () => {
                   selection={selection}
                   defaultTitle="Choose person"
                   onChange={(selected) =>
+                    // eslint-disable-next-line no-console
                     console.log('[CustomSelect]', selected)
                   }
                 />
@@ -73,6 +74,7 @@ const CustomSelectPage = () => {
                   selection={selection}
                   defaultTitle="Choose person"
                   onChange={(selected) =>
+                    // eslint-disable-next-line no-console
                     console.log('[CustomMultipleSelect]', selected)
                   }
                 />

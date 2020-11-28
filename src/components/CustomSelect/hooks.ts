@@ -27,7 +27,7 @@ export const useSelect = () => {
 };
 
 export const useHandleSelect = <TItem extends BaseItem>(
-  props: CustomSelectProps<TItem>,
+  props: CustomSelectProps<TItem>
 ) => {
   const { onChange, selectedItem: defaultSelectedItem } = props;
   const {
@@ -37,20 +37,21 @@ export const useHandleSelect = <TItem extends BaseItem>(
     closeSelection,
     stopPropagation,
   } = useSelect();
-  const [selectedItem = defaultSelectedItem, setSelectedItem] = useState<
-    TItem
-  >();
+  const [
+    selectedItem = defaultSelectedItem,
+    setSelectedItem,
+  ] = useState<TItem>();
   const handleSelectItem = useCallback(
     (item: TItem) => () => {
       setOpen(false);
       setSelectedItem(item);
       onChange(item);
     },
-    [onChange, setOpen],
+    [onChange, setOpen]
   );
   const isSelectedItem = useCallback(
     (item: TItem) => isEqual(item, selectedItem),
-    [selectedItem],
+    [selectedItem]
   );
   return {
     open,
@@ -65,7 +66,7 @@ export const useHandleSelect = <TItem extends BaseItem>(
 };
 
 export const useHandleMultipleSelect = <TItem extends BaseItem>(
-  props: CustomMultipleSelectProps<TItem>,
+  props: CustomMultipleSelectProps<TItem>
 ) => {
   const { onChange, selectedItem: defaultSelectedItem = [] } = props;
   const {
@@ -76,14 +77,14 @@ export const useHandleMultipleSelect = <TItem extends BaseItem>(
     stopPropagation,
   } = useSelect();
   const [selectedItems = [], setSelectedItems] = useState<Array<TItem>>(
-    defaultSelectedItem,
+    defaultSelectedItem
   );
   const handleSelectItem = useCallback(
     (item: TItem, selected: boolean = false) => () => {
       let toUpdateItems = [...selectedItems];
       if (selected) {
         toUpdateItems = toUpdateItems.filter((i) =>
-          [i.label !== item.label, i.value !== item.value].some(Boolean),
+          [i.label !== item.label, i.value !== item.value].some(Boolean)
         );
       } else {
         toUpdateItems.push(item);
@@ -91,13 +92,13 @@ export const useHandleMultipleSelect = <TItem extends BaseItem>(
       setSelectedItems(toUpdateItems);
       onChange(toUpdateItems);
     },
-    [onChange, selectedItems],
+    [onChange, selectedItems]
   );
   const isSelectedItem = useCallback(
     (item: TItem) => {
       return selectedItems.includes(item);
     },
-    [selectedItems],
+    [selectedItems]
   );
   return {
     open,

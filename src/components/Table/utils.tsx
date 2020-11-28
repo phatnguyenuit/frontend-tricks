@@ -5,10 +5,10 @@ import { ColumnOptionsList, ColumnOptions } from './index';
 
 export function renderBody<TRecord>(
   data: Array<TRecord>,
-  columns: ColumnOptionsList<TRecord>,
+  columns: ColumnOptionsList<TRecord>
 ) {
   return data.map((record, index) =>
-    renderRow(`tr-${index}`, columns, record, index),
+    renderRow(`tr-${index}`, columns, record, index)
   );
 }
 
@@ -16,7 +16,7 @@ export function renderRow<TRecord>(
   rowKey: React.Key,
   columns: ColumnOptionsList<TRecord>,
   record: TRecord,
-  index: number,
+  index: number
 ) {
   return (
     <MuiTableRow key={rowKey}>
@@ -26,7 +26,7 @@ export function renderRow<TRecord>(
             ? renderCellContent(record, index)
             : record[columnKey as keyof TRecord];
           return renderCell(`td-${rowKey}-${columnKey}`, content);
-        },
+        }
       )}
     </MuiTableRow>
   );

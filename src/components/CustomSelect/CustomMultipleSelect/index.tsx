@@ -12,7 +12,7 @@ import useStyles from './styles';
 import baseUseStyles from '../styles';
 
 export function CustomMultipleSelectComponent<TItem extends BaseItem>(
-  props: CustomMultipleSelectProps<TItem>,
+  props: CustomMultipleSelectProps<TItem>
 ) {
   const {
     defaultTitle,
@@ -119,7 +119,7 @@ export function CustomMultipleSelectComponent<TItem extends BaseItem>(
 }
 
 const CustomMultipleSelect = React.memo(
-  CustomMultipleSelectComponent,
+  CustomMultipleSelectComponent
 ) as typeof CustomMultipleSelectComponent & React.ComponentType<any>;
 CustomMultipleSelect.displayName = 'CustomMultipleSelect';
 export default CustomMultipleSelect;

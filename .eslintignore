@@ -3,4 +3,4 @@
 **/*.min.js
 **/*.min.jsx
 **/*.d.ts
-src/serviceWorker.js
+src/serviceWorker.ts
