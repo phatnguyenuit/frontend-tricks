@@ -1,3 +1,10 @@
+# frontend-tricks
+
+![CI/CD](https://github.com/phatnguyenuit/frontend-tricks/workflows/CI/CD/badge.svg)
+[![Codecov](https://img.shields.io/codecov/c/github/phatnguyenuit/frontend-tricks)](https://codecov.io/gh/phatnguyenuit/frontend-tricks)
+![License](https://img.shields.io/github/license/phatnguyenuit/frontend-tricks)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
