@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1242cb026f7365966f30c73fd3b9ae4a",
+    "revision": "b09dc96b3ab962f12e4f5a6f25058ec2",
     "url": "/frontend-tricks/index.html"
   },
   {
-    "revision": "e3f8c85c6f3a3c60c481",
+    "revision": "ebee70d2b255da9e2440",
     "url": "/frontend-tricks/static/css/main.ae3e5659.chunk.css"
   },
   {
@@ -32,16 +32,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend-tricks/static/js/6.c608c729.chunk.js"
   },
   {
-    "revision": "d4bcb47ddae75a02b409",
-    "url": "/frontend-tricks/static/js/7.b2502fef.chunk.js"
+    "revision": "ee8699103e6a26d3d7f7",
+    "url": "/frontend-tricks/static/js/7.b0fa9a54.chunk.js"
   },
   {
-    "revision": "e3f8c85c6f3a3c60c481",
-    "url": "/frontend-tricks/static/js/main.e96ab8b0.chunk.js"
+    "revision": "ebee70d2b255da9e2440",
+    "url": "/frontend-tricks/static/js/main.6eec2c54.chunk.js"
   },
   {
-    "revision": "1913c6ba1d3becdf0a3f",
-    "url": "/frontend-tricks/static/js/runtime-main.b3fa0a04.js"
+    "revision": "397c35606da0ae9cc0f7",
+    "url": "/frontend-tricks/static/js/runtime-main.b1d55e5e.js"
   },
   {
     "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",
