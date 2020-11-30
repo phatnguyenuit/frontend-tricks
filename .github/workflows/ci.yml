@@ -25,18 +25,21 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Install Yarn
+      run: npm install -g yarn
+
     - name: Cache dependencies
       uses: actions/cache@v2
       with:
         path: |
           **/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
     - name: Install dependencies
-      run: npm install
+      run: yarn
 
     - name: Run the tests and generate coverage report
-      run: npm test -- --coverage
+      run: yarn test --coverage
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
@@ -48,7 +51,7 @@ jobs:
         git config --global user.name $user_name
         git config --global user.email $user_email
         git remote set-url origin https://${github_token}@github.com/${repository}
-        npm run deploy -m "Build commit '${{ github.event.head_commit.message }}'"
+        yarn deploy -m "${{ github.event.head_commit.message }}"
       env:
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
