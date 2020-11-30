@@ -1,7 +1,7 @@
 # frontend-tricks
 
 ![CI/CD](https://github.com/phatnguyenuit/frontend-tricks/workflows/CI/CD/badge.svg)
-[![Codecov](https://img.shields.io/codecov/c/github/phatnguyenuit/frontend-tricks)](https://codecov.io/gh/phatnguyenuit/frontend-tricks)
+[![codecov](https://codecov.io/gh/phatnguyenuit/frontend-tricks/branch/master/graph/badge.svg?token=LN6296DQS3)](https://codecov.io/gh/phatnguyenuit/frontend-tricks)
 ![License](https://img.shields.io/github/license/phatnguyenuit/frontend-tricks)
 
 
