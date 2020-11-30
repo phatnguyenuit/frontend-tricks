@@ -10,7 +10,8 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  setup:
+    name: Setup NodeJS environment
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -34,18 +35,22 @@ jobs:
         path: |
           **/node_modules
         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
     - name: Install dependencies
       run: yarn
 
+  test-coverage:
+    needs: [setup]
+    name: Run test coverage and upload to Codecov
+    runs-on: ubuntu-latest
+    steps:
     - name: Run the tests and generate coverage report
       run: yarn test --coverage
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-
+  build:
+    needs: [setup, test-coverage]
+    name: Build production and deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
     - name: Deploy to GitHub Pages
       run: |
         git config --global user.name $user_name
@@ -57,3 +62,5 @@ jobs:
         user_email: 'github-actions[bot]@users.noreply.github.com'
         github_token: ${{ secrets.DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
+
+# Reference: https://github.community/t/run-next-job-sequentially-even-if-a-previous-job-fails/17404/2
