@@ -10,13 +10,9 @@ on:
     branches: [ master ]
 
 jobs:
-  setup:
-    name: Setup NodeJS environment
+  test-coverage:
+    name: Run test coverage and upload to Codecov
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
     - name: Check repository
       uses: actions/checkout@v2
@@ -35,24 +31,39 @@ jobs:
         path: |
           **/node_modules
         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
     - name: Install dependencies
       run: yarn
 
-  test-coverage:
-    needs: [setup]
-    name: Run test coverage and upload to Codecov
-    runs-on: ubuntu-latest
-    steps:
-    - name: Check repository
-      uses: actions/checkout@v2
     - name: Run the tests and generate coverage report
       run: yarn test --coverage
 
   build:
-    needs: [setup, test-coverage]
+    needs: [test-coverage]
     name: Build production and deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
+    - name: Check repository
+      uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install Yarn
+      run: npm install -g yarn
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+    - name: Install dependencies
+      run: yarn
+
     - name: Deploy to GitHub Pages
       run: |
         git config --global user.name $user_name
