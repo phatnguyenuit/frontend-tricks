@@ -37,6 +37,8 @@ jobs:
 
     - name: Run the tests and generate coverage report
       run: yarn test --coverage
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Deploy to GitHub Pages
       run: |
