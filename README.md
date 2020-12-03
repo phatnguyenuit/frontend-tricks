@@ -4,6 +4,12 @@
 [![codecov](https://codecov.io/gh/phatnguyenuit/frontend-tricks/branch/master/graph/badge.svg?token=LN6296DQS3)](https://codecov.io/gh/phatnguyenuit/frontend-tricks)
 ![License](https://img.shields.io/github/license/phatnguyenuit/frontend-tricks)
 
+## Features
+
+- Automate workflow to deploy with GitHub Actions
+- Code coverage with [Codecov](https://codecov.io)
+- Lazy loading
+- Strong static typings with TypeScript
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
