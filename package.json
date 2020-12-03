@@ -62,12 +62,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run type-check && lint-staged"
+      "pre-commit": "yarn type-check && lint-staged"
     }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "npm run lint:fix"
+      "yarn lint:fix"
     ],
     "{*.{json,md}}": [
       "prettier --write"
